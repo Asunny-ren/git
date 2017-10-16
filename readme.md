@@ -152,3 +152,31 @@
 
   ![](https://github.com/Asunny-ren/git/blob/master/git_branch5.png)
 
+  ``` code
+  //创建分支dev并切换到dev
+  $ git checkout -b dev
+  Switched to a new branch 'new'
+
+  // or
+
+  // 加上-b参数表示创建并切换到dev,相当于: 
+  $ git branch dev
+  $ git checkout dev
+  Switched to branch 'dev'
+
+  // 在dev分支上进行修改提交，然后切换到master分支
+  $ git checkout master
+  Switched to branch 'master'
+
+  // 切换到master分支之后发现，之前在dev分支上修改的东西没了，因为那些修改都在dev分支上，master上看不到，需要我们把dev合并到master上。
+
+  //合并指定分支到当前分支上
+  $ git merge dev
+  Updating bb79d63..d771531
+  Fast-forward
+  test.html | 1 +
+  1 file changed, 1 insertion(+)
+
+  // 删除dev分支
+  $ git branch -d dev
+  ```
