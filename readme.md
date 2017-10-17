@@ -236,10 +236,10 @@
 ### git tag
 
 * 创建标签
-![](https://github.com/Asunny-ren/git/blob/master/git_add_tag.png)
+![](https://github.com/Asunny-ren/git/blob/master/git_add_tag.jpg)
 
 * 操作标签
-![](https://github.com/Asunny-ren/git/blob/master/git_tag.png)
+![](https://github.com/Asunny-ren/git/blob/master/git_tag.jpg)
 
 
 ### 忽略文件
@@ -272,6 +272,6 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
 
 ## 搭建git服务器
 
-![](https://github.com/Asunny-ren/git/blob/master/git_service.png)
+![](https://github.com/Asunny-ren/git/blob/master/git_service.jpg)
 
-![](https://github.com/Asunny-ren/git/blob/master/git_service_1.png)
+![](https://github.com/Asunny-ren/git/blob/master/git_service_1.jpg)
