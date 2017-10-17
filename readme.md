@@ -180,3 +180,98 @@
   // 删除dev分支
   $ git branch -d dev
   ```
+
+### 分支管理策略
+
+  * 通常，合并分支时，如果可能，Git会用Fast forward模式，但这种模式下，删除分支后，会丢掉分支信息。
+
+  * 如果要强制禁用Fast forward模式，Git就会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息。
+
+  ``` code
+    $ git merge --no-ff -m "merge with no-ff" dev
+  ```
+
+  > 在实际开发中，我们应该按照几个基本原则进行分支管理：
+    
+    首先，master分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；干活都在dev分支上，也就是说，dev分支是不稳定的，到某个时候，比如1.0版本发布时，再把dev分支合并到master上，在master分支发布1.0版本；每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并就可以了。
+
+    ``` code
+      // 把当前工作现场存储起来，等待恢复
+      $ git stash
+
+      // 查看工作现场
+      $ git stash list
+
+
+      // 恢复，一是用git stash apply恢复，但是恢复后，stash内容并不删除，你需要用git stash drop
+      $ git stash apply
+      // 另一种方式是用git stash pop，恢复的同时把stash内容也删了：
+      $ git stash pop
+
+
+      // 可以多次stash，恢复的时候，先用stash list查看，然后回复指定的stash
+      $ git stash apply stash@{0}
+    ```
+
+    * 开发一个新feature，最好新建一个分支；如果要丢弃一个没有被合并过的分支，可以通过git branch -D <name>强行删除。
+
+### 多人协作
+
+  > 当你从远程仓库克隆时，实际上Git自动把本地的master分支和远程的master分支对应起来了，并且，远程仓库的默认名称是origin。要查看远程库的信息，用git remote：
+
+  $ git remote
+
+  * 推送分支
+
+    > 推送分支，就是把该分支上的所有本地提交推送到远程库。推送时，要指定本地分支，这样，Git就会把该分支推送到远程库对应的远程分支上：
+
+    $ git push origin master
+
+    如果要推送其他分支，比如dev，就改成：
+
+    $ git push origin dev
+
+    ![](https://github.com/Asunny-ren/git/blob/master/git_branch.png)
+
+### git tag
+
+* 创建标签
+![](https://github.com/Asunny-ren/git/blob/master/git_add_tag.png)
+
+* 操作标签
+![](https://github.com/Asunny-ren/git/blob/master/git_tag.png)
+
+
+### 忽略文件
+
+添加.gitignore文件、
+
+[官方忽略文件](https://github.com/github/gitignore)
+
+
+### 配置别名
+
+``` code
+$ git config --global alias.st status
+$ git config --global alias.co checkout
+$ git config --global alias.ci commit
+$ git config --global alias.br branch
+
+
+// 撤销
+$ git config --global alias.unstage 'reset HEAD'
+$ git unstage test.py
+
+// 配置显示最后一次提交信息
+$ git config --global alias.last 'log -1'
+$ git last
+
+// 配置提交信息
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+```
+
+## 搭建git服务器
+
+![](https://github.com/Asunny-ren/git/blob/master/git_service.png)
+
+![](https://github.com/Asunny-ren/git/blob/master/git_service_1.png)
