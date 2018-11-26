@@ -7,7 +7,7 @@
   集中式版本控制系统，版本库是集中存放在中央服务器的，而干活的时候，用的都是自己的电脑，所以要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器。
 
 * 分布式
-  
+
   分布式版本控制系统根本没有“中央服务器”，每个人的电脑上都是一个完整的版本库，两个人之间可以互相推送各自的修改。如果不在同一个局域网中时，分布式版本控制系统通常也有一台充当“中央服务器”的电脑，用来方便大家交换修改。
 
 > 安装 install
@@ -49,19 +49,19 @@
 
 ``` code
   // 查看结果
-  git status 
+  git status
 
   //查看具体修改了什么
-  git diff 
+  git diff
 
   //添加test.html到版本控制库
-  git add test.html 
+  git add test.html
 
   //提交到本地版本库中
   git commit -m 'add test.html' 
 
   // 查看提交日志，加参数--pretty=oneline显示版本号和提交备注
-  git log 
+  git log
 
   // git中HEAD代表当前版本，上一个版本为HEAD^,依此类推，往上100个版本可以写为HEAD~100
   // 回退
@@ -131,7 +131,7 @@
   * 在版本回退里，你已经知道，每次提交，Git都把它们串成一条时间线，这条时间线就是一个分支。截止到目前，只有一条时间线，在Git里，这个分支叫主分支，即master分支。HEAD严格来说不是指向提交，而是指向master，master才是指向提交的，所以，HEAD指向的就是当前分支。
 
   * 一开始的时候，master分支是一条线，Git用master指向最新的提交，再用HEAD指向master，就能确定当前分支，以及当前分支的提交点：
-  
+
   ![](https://github.com/Asunny-ren/git/blob/master/git_branch1.png)
 
   * 每次提交，master分支都会向前移动一步，这样，随着你不断提交，master分支的线也越来越长：
@@ -159,7 +159,7 @@
 
   // or
 
-  // 加上-b参数表示创建并切换到dev,相当于: 
+  // 加上-b参数表示创建并切换到dev,相当于:
   $ git branch dev
   $ git checkout dev
   Switched to branch 'dev'
@@ -192,7 +192,7 @@
   ```
 
   > 在实际开发中，我们应该按照几个基本原则进行分支管理：
-    
+
     首先，master分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；干活都在dev分支上，也就是说，dev分支是不稳定的，到某个时候，比如1.0版本发布时，再把dev分支合并到master上，在master分支发布1.0版本；每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并就可以了。
 
     ``` code
@@ -241,13 +241,11 @@
 * 操作标签
 ![](https://github.com/Asunny-ren/git/blob/master/git_tag.jpg)
 
-
 ### 忽略文件
 
 添加.gitignore文件、
 
 [官方忽略文件](https://github.com/github/gitignore)
-
 
 ### 配置别名
 
